@@ -73,10 +73,10 @@ $ tree data
 ### Training and Testing
 ```
 # single-gpu running
-CUDA_VISIBLE_DEVICE=1 python main.py <CONFIG_FILE> --work-dir <WORK_DIR> --show-dir <SHOW_DIR>
+CUDA_VISIBLE_DEVICE=0 python main.py <CONFIG_FILE> --work-dir <WORK_DIR> --show-dir <SHOW_DIR>
 
 # example for one fold of cross-validation
-CUDA_VISIBLE_DEVICE=1 python main.py conifgs/cross_validation_128/1.py --work-dir output/128/1 --show-dir ./show/128/1
+CUDA_VISIBLE_DEVICE=0 python main.py conifgs/cross_validation_128/1.py --work-dir output/128/1 --show-dir ./show/128/1
 ```
 
 **Notes:**
