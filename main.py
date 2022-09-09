@@ -96,10 +96,6 @@ def train(config):
                     f'time {batch_time:.4f} '
                     f'loss [cls {loss_class.item():.4f} neck {loss_neck.item():.4f} decoder {loss_decoder.item():.4f}] '
                     f'mem {memory_used:.0f}MB')
-                logger.info(
-                    f'apm_anchor [{model.apm_anchor.min().item():.4f}, {model.apm_anchor.max().item():.4f}] '
-                    f'apm_contrast [{model.apm_contrast.min().item():.4f}, {model.apm_contrast.max().item():.4f}] '
-                )
         epoch_time = time.time() - start
         logger.info(f"EPOCH {epoch} training takes {datetime.timedelta(seconds=int(epoch_time))}")
 
