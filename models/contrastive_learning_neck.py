@@ -53,9 +53,9 @@ class NegativeDictionary(nn.Module):
         feature_norm = feature / feature.norm(dim=1, keepdim=True)
         dictionary_norm = dictionary / dictionary.norm(dim=1, keepdim=True)
         similarity = torch.einsum('b c h w, n c->b n h w ', feature_norm, dictionary_norm)
-        apm, index_max = torch.min((1 - similarity) / 2, dim=1, keepdim=True)
+        apm, index_ = torch.min((1 - similarity) / 2, dim=1, keepdim=True)
 
-        return apm, index_max
+        return apm, index_
 
     def high_pass(self, feature, dictionary, apm, index):
         B, C, H, W = feature.shape
@@ -122,9 +122,9 @@ class DictionaryLoss:
         self.use_entropy = use_entropy
 
     def __call__(self, apm, is_positive=False):
+        apm = apm.max()
         if is_positive:
             apm = 1 - apm
-        # apm = apm.max()
         if self.use_entropy:
             return (- (apm * torch.log(1. - apm))).mean()
         else:
