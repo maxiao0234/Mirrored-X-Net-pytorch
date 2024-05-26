@@ -91,3 +91,17 @@ CUDA_VISIBLE_DEVICE=0 python main.py conifgs/cross_validation_128/1.py --work-di
     * loguru
     * skimage
     * pydensecrf
+
+## Citing
+If this project is help for you, please cite it.
+```
+@article{ji2024mirrored,
+  title={Mirrored X-Net: Joint classification and contrastive learning for weakly supervised GA segmentation in SD-OCT},
+  author={Ji, Zexuan and Ma, Xiao and Leng, Theodore and Rubin, Daniel L and Chen, Qiang},
+  journal={Pattern Recognition},
+  volume={153},
+  pages={110507},
+  year={2024},
+  publisher={Elsevier}
+}
+```
